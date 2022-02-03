@@ -1,0 +1,90 @@
+gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x820: file p2final.c, line 40.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p2final.c:40
+40      printf("enter 3 numbers\n");
+(gdb) n
+enter 3 numbers
+41      a=input();
+(gdb) s
+input () at p2final.c:28
+28    {
+(gdb) n
+30      scanf("%d",&x);
+(gdb) n
+4
+31      return x;
+(gdb) n
+32    }
+(gdb) n
+main () at p2final.c:42
+42      b=input();
+(gdb) s
+input () at p2final.c:28
+28    {
+(gdb) n
+30      scanf("%d",&x);
+(gdb) n
+5
+31      return x;
+(gdb) n
+32    }
+(gdb) n
+main () at p2final.c:43
+43      c=input();
+(gdb) s
+input () at p2final.c:28
+28    {
+(gdb) n
+30      scanf("%d",&x);
+(gdb) n
+6
+31      return x;
+(gdb) n
+32    }
+(gdb) n
+main () at p2final.c:44
+44      large=cmp(a,b,c);
+(gdb) s
+cmp (a=4, b=5, c=6) at p2final.c:4
+4     if(a>b)
+(gdb) n
+17      if(b>c)
+(gdb) n
+23        return c;
+(gdb) n
+26  }
+(gdb) n
+main () at p2final.c:45
+45      output(a,b,c,large);
+(gdb) s
+output (a=4, b=5, c=6, large=6) at p2final.c:35
+35      printf("the largest among the three is %d\n",large);
+(gdb) n
+the largest among the three is 6
+36    }
+(gdb) n
+main () at p2final.c:46
+46      return 0;
+(gdb) n
+47    }
+(gdb) n
