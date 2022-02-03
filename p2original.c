@@ -69,9 +69,4 @@ int main()
     
 
 
-int input()
-{
-  int a;
-  scanf("%d",&a);
-  return a;
-}
+
