@@ -33,7 +33,7 @@ int input()
 }
 void output (int a, int b,int c ,int large)
 {
-  printf("the largest of the three numbers %d,%d,%d is  %d\n",a,b,c,large);
+  printf("the largest of the three numbers is  %d\n",large);
 }
 int main()
 {
