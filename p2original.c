@@ -43,6 +43,7 @@ int main()
   b=input();
   c=input();
   large=cmp(a,b,c);
+  output(a,b,c,large);
   return 0;
 }
 
