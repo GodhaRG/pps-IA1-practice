@@ -1,0 +1,95 @@
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x92a: file p6final.c, line 55.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p6final.c:55
+55  {
+(gdb) n
+58    input_two_string(a,b);
+(gdb) s
+input_two_string (a=0x7ffc022705da "", b=0x7ffc022705e9 "\006\340m\274U")
+    at p6final.c:5
+5     printf("enter two words\n ");
+(gdb) n
+enter two words
+6     scanf("%s",a);
+(gdb) n
+ world
+7     scanf("%s",b);
+(gdb) n
+hello
+8   }
+(gdb) n
+main () at p6final.c:59
+59    k=str_cmp(a,b);
+(gdb) s
+str_cmp (a=0x7ffc022705da "world", b=0x7ffc022705e9 "hello") at p6final.c:12
+12    x=strlen(a);
+(gdb) p x
+$1 = 36111834
+(gdb) n
+13    y=strlen(b);
+(gdb) p y
+$2 = 32764
+(gdb) n
+14    if(a>b)
+(gdb) p a
+$3 = 0x7ffc022705da "world"
+(gdb) p b
+$4 = 0x7ffc022705e9 "hello"
+(gdb) n
+20      n=y;
+(gdb) n
+22    for (int k=0;k<n;k++)
+(gdb) p k
+$5 = 32764
+(gdb) n
+24      if(a[k]>b[k])
+(gdb) p a[k]
+$6 = 119 'w'
+(gdb) p b[k]
+$7 = 104 'h'
+(gdb) n
+26        return 1;
+(gdb) n
+38  }
+(gdb) n
+main () at p6final.c:60
+60    output(a,b,k);
+(gdb) s
+output (a=0x7ffc022705da "world", b=0x7ffc022705e9 "hello", result=1)
+    at p6final.c:41
+41    if(result==1)
+(gdb) p result
+$8 = 1
+(gdb) n
+43      printf("%s is greater than %s\n",a,b);
+(gdb) n
+world is greater than hello
+53  }
+(gdb) n
+main () at p6final.c:61
+61    printf("%d\n",k);
+(gdb) n
+1
+62    return 0;
+(gdb) n
+63  }(gdb) n
