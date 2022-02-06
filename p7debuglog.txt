@@ -1,0 +1,91 @@
+gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x870: file p7final.c, line 26.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p7final.c:26
+26    printf("enter first complex number a+bi in the form 'a b'\n");
+(gdb) n
+enter first complex number a+bi in the form 'a b'
+27    a=input_complex();
+(gdb) s
+input_complex () at p7final.c:7
+7   {
+(gdb) n
+9     scanf("%f %f",&k.real,&k.imaginary);
+(gdb) n
+5  4
+10    return k;
+(gdb) n
+11  }
+(gdb) n
+main () at p7final.c:28
+28    printf("enter second complex number a+bi in the form 'a b'\n");
+(gdb) n
+enter second complex number a+bi in the form 'a b'
+29    b=input_complex();
+(gdb) s
+input_complex () at p7final.c:7
+7   {
+(gdb) n
+9     scanf("%f %f",&k.real,&k.imaginary);
+(gdb) n
+3 6
+10    return k;
+(gdb) n
+11  }
+(gdb) n
+main () at p7final.c:30
+30    c=add_complex(a,b);
+(gdb) s
+add_complex (a=..., b=...) at p7final.c:15
+15    c.real=a.real+b.real;
+(gdb) n
+16    c.imaginary=a.imaginary+b.imaginary;
+(gdb) p c.real
+$1 = 8
+(gdb) n
+17    return c;
+(gdb) p c.imaginary
+$2 = 10
+(gdb) p a.real
+$3 = 5
+(gdb) p b.real
+$4 = 3
+(gdb) p a.imaginary
+$5 = 4
+(gdb) p b.imaginary
+$6 = 6
+(gdb) n
+18  }
+(gdb) n
+main () at p7final.c:31
+31    output(a,b,c);
+(gdb) s
+output (a=..., b=..., c=...) at p7final.c:21
+21    printf("(%f+%fi)+(%f+%fi)is(%f+%fi)\n",a.real,a.imaginary,b.real,b.imaginary,c.real,c.imaginary);
+(gdb) n
+(5.000000+4.000000i)+(3.000000+6.000000i)is(8.000000+10.000000i)
+22  }
+(gdb) n
+main () at p7final.c:32
+32    return 0;
+(gdb) n
+33  }(gdb) n
